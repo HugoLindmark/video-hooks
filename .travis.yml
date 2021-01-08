@@ -7,7 +7,7 @@ services:
 
 
 before_install:
-  - docker build -t video-hooks:latest .
+  - docker build -t docker-test:latest .
   - docker images
 
 deploy:
