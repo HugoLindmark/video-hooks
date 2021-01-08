@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:13.14.0-alpine
+FROM node:10 AS build
 
 # set working directory
 WORKDIR /home/kramoguh/MyProjects/ReactCourse/videos
