@@ -1,20 +1,15 @@
 language: node_js
 node_js:
-  - 10
-
+- 10
 services:
-  - docker
-
+- docker
 before_install:
-  - docker build -t docker-test:latest .
-  - docker images
-
+- docker build -t docker-test:latest .
+- docker images
 after_success:
-- ./docker_push.sh
-
+- "./docker_push.sh"
 deploy:
   provider: heroku
   api_key:
-    secure: "$HEROKU_API_KEY"
+    secure: fUEWs1XKAJTMbNgkrPuZdfONXxUWDOo3q2zgST18DAvAqIHoIOWNt/ryQTFZl6tNhU18smD7rZZOlHuqE3nT5W9bJcsrrn+xZ0yZV0f644Nk0tgalXu2UzHXPeDwZaTpO1Vo3bOuyw59Q/sAOmrXhfxOf4PBd0d2sdAW9q1TJR9g9zuHXKOj6weupy6BVln7fFsmTUTxbcr2uwq0D7pT7dEpnJdY6t2ZXtWU4hSkY1JL7TldUUcelFg+gr30eUxM3zBYtuYon5tfmo79dGyUywgfznYrvUOftQ8NHpZtN+9Dd4maLAH0swc6cQhEJi0viiiODhhlQNRAxHSAb+srxHCt28PxQ9M4ZD42KqI/QHT5qLICrH7aZutN1HL0m7Swt2MU1w8MYOD64xe2KN9LbAeBP8VY2P72iv1xcGWnjb0qj62jvaw2tKcB60n1t9QYiROyAdaAYds+6iMpCcNeeYQFOBc5aaLjzIuY9lRZZDBrBabhT5IoeM+42BF3hcXk+TAhNeQin3SrseMqpULABPOX8fWVeDGvxZTIuGH0JnHuDCfB7m7qrToGK9cMj33UCq4j28IU6JJYLUFq/GEhfTGmwqjvyXJPDy2uHo2S7iIy+UVVrDzEwAFO/KrzjQQz93SzFViJ6pOljll/Y2FtKYMjU7wN6DoDFGofirlo7tg=
   app: dockerize-testing
- 
