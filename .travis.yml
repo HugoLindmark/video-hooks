@@ -8,7 +8,7 @@ before_install:
 - docker images
 
 after_success:
-  - docker login $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - export REPO=htotheo/docker-test
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
